@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+
+// Assignments
+Route::get('/assignments', [AssignmentController::class, 'index'])->name('assignments');
+Route::get('/assignments/create', [AssignmentController::class, 'create'])->name('assignments.create');
+Route::post('/assignments', [AssignmentController::class, 'store'])->name('assignments.store');
+Route::put('/assignments/{assignment}', [AssignmentController::class, 'update'])->name('assignments.update');
+Route::delete('/assignments/{assignment}', [AssignmentController::class, 'destroy'])->name('assignments.destroy');
